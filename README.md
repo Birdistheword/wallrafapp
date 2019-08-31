@@ -251,4 +251,47 @@ PRÜFEN
 #####  3.14	Component activityLoader
 Veraltet?
 
+### 4. Datenbank
+
+Die Datenbank ist aufgeteilt in drei json Dateien. 
+- touren.json enthält Informationen über die Touren an sich
+- tourenStops.json enthält Informationen zu den einzelnen Elementen innerhalb einer Tour
+- picture.json enthält Informationen zu den Bildern
+
+#### 4.1 touren.json
+
+Einträge zu Touren bestehen aus 7 Elementen
+1. Tour Id
+2. Tour Name
+3. Tour Länge
+4. Bilderanzahl
+5. Teasertext 
+6. Array von BilderIds, die in der Tour vorkommen
+7. Array von TextIds, die in der Tour vorkommen
+
+#### 4.2 tourenStops.json
+
+Einträge innerhalb der Touren bestehen aus 10 Elementen
+1. Text Id
+2. Tour Id
+3. TourStop
+4. BilderIds auf Screen (i.d.R. 1-3)
+5. Überschrift
+6. Haupttext
+7. Quelle
+8. Aufklappbarer Text
+9. Audioquelle
+10. Kommentar
+
+#### 4.3 picture.json
+
+Einträge zu Bildern bestehen aus 7 Einträgen
+1. Bild Id 
+2. Titel
+3. Künstler
+4. Stockwerk, in dem das Bild hängt
+5. Raum, in dem das Bild hängt
+6. zugehörige TourId
+7. zugehörige TourStopId
+
 
