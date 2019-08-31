@@ -124,7 +124,7 @@ Schüttle dein physisches Device oder drücke STRG + M beim virtuellen, um weite
 Das Setup ist beendet!
 Falls etwas noch nicht klappt, nicht verzagen! Bei den meisten von uns gab es erstmal Startschwierigkeiten. Im Folgenden liste ich die häufigsten Fehler auf.
 
-##### 2.3	Gängige Fehler und ihre möglichen Lösungen 
+#### 2.3	Gängige Fehler und ihre möglichen Lösungen 
 
 ###### Fehler
 
@@ -143,5 +143,112 @@ Handy bleibt im Start Screen (Bei Google Logo oder Android Schriftzug) stecken
 Länger warten (dauert tatsächlich bis zu 15 Minuten bei manchen) 
 Oder
 Ein anderes, schwacheres Handy mit kleinerer Auflösung wählen.
-NOCH WEITERE BEISPIELE?
+
+
+
+### 3.	Screens & Components
+##### 3.1	screenStart
+Willkommen Seite mit Bild & Logos als Hintergrund. 
+> Willkommen -> screenDecision
+
+##### 3.2	screenDecision
+Man kann auswählen, ob man auf die Tourenübersicht gelangen will oder ob man per QR Code Scanner direkt zu einem Bild springt. 
+
+> Wähle eine Tour aus -> screenHome
+> Qr Code Scanner -> qrScan
+
+##### 3.3	Screen qrScan
+Der QR Code Scanner liest TourId und TourIndex aus (In welchem Format genau, also ob 01, 0-1 oder 0_1, oder noch was anderes, ist leider gerade unbekannt) 
+> Scannen eines QR Codes -> pictureArticle[TourId, TourIndex]
+
+##### 3.4	screenHome
+Rendert alle Elemente des Components HomeArticles.
+> Klick auf ein Element von HomeArticles -> screenTourKeyVisual[TourId]
+
+##### 3.5	screenTourKeyVisual
+Rendert die Informationen zur aktuellen Tour mit Namen, Text (auch in Audioform)
+Informationen kommen aus DatenbankREFERENZ
+
+`src -> assets -> data -> touren.json`
+
+Im developer Branch sind momentan nur 2 Touren eingetragen, da diese vollständig sind und über Audiospuren verfügen. Es stehen weit mehr Touren zur Verfügung. (Aktueller Stand: ??)
+> Tour Starten -> screenTourPicture[TourId]
+
+##### 3.6	screenTourPicture
+Blendet Karte zum Bild ein (Stockwerkabbildung REFERENZ)
+
+`src -> assets -> img -> maps`
+
+Maps sind beschriftet nach dem Muster STOCKWERK_RAUM (mit unseren Variablen würde das dann buildingLevel_roomNumber heißen)
+Die Values hierfür sind eingetragen in REFERENZ
+
+`src -> assets -> data -> buildingLevel`
+`src -> assets -> data -> roomNumber`
+Auf den Karten ist der richtige Raum dann im museumsrot markiert. Wird ein Bild umgehängt, müssen nur die beiden jeweiligen Variablen geändert werden.
+Die Karte kann rechts oben mit dem MapIcon wieder aufgerufen werden.
+
+Die Daten zur aktuellen Tour werden deklariert. Vor allem wichtig: 
+> currentTourId, currentTourIndex, currentTourStopId(?) und currentMainPictureId
+mit Hilfe der aktuellen TourId und TourIndex werden dann jeweils die nächsten Screens aufgerufen.
+screenTourPicture enthält pictureArticle
+
+##### 3.7	Component pictureArticle
+Das Herzstück der App. Hier handelt es sich um das Component, das dynamisch je nach TourId und TourIndex aufgebaut wird mit zugehörigem Bild, Text, Audiospur und evtl Zusatzbild und oder AccordionText
+
+State prüft, ob wir beim letzten Bild angekommen sind:
+lastTourStopId = Länge der Tour – 1
+- Falls true -> Nächstes Bild ist TourEnde (bringMeToTheEnd())
+- Falls false -> Nächstes Bild ist regulär (bringMeToTheNextPicture())
+
+Wie schon in screenTourPicture werden wichtige Variablen zu currentTourId etc. deklariert. 
+dataArray wird erstellt und in dieses wird der Inhalt gepusht.
+Mittels des react-native Components Image-Zoom wird das passende Bild per pictureID von der currentTour angezeigt. 
+AudioPlayer wird aufgerufen mit 3 Parametern: 
+-	AudioId = CurrentTourStopId
+-	Navigation = navigation (?)
+-	audioSource = picture 
+Diese werden im Component AudiPlayer näher beschrieben.
+
+Meta Infos zu Bild werden darunter eingeblendet. 
+Dann folgen Titel und Text
+Dann AccordionText, falls vorhanden. (aufklappbarer Text)
+
+Return liefert dann erst das Data Array und danach die Pfeile zum vor und zurück gelangen.
+
+> Achtung: Gerade sind die Pfeile ebenfalls kopiert, an den Anfang des Arrays, da gewünscht wurde, dies auch ohne Scrollen bewältigen zu > können. Das scheint noch nicht die optimale Lösung zu sein, soll aber erst vom Kurs angeschaut werden, da es eine neue Funktion ist.  > Da nicht sicher ist, wie das ankommt wurde von einer komplexeren / saubereren Lösung abgesehen. 
+
+##### 3.8	screenEnd
+Der End Screen, der nach dem letzten Bild einer Tour angezeigt wird. Von hier aus kann man zurück zur Startseite oder zurück zur Touren Auswahl
+> ToDo: überlegen, ob genau diese 2 Buttons sinnvoll sind, oder man etwa Startseite durch QR Scanner Link ersetzt. (User will wohl      > entweder eine neue Tour starten oder etwas Scannen, da ist durch Startseite ein Klick dazwischen)
+
+##### 3.9	Component textAccordion
+Selbst geschriebenes Component
+Component toggled zwischen zwei states, bei Click auf Aufklapp Button.
+Enthält Text, der aus tourenStops.json AccordionText[i] übergeben wird aus pictureArticle. 
+Enthält Audioplayer, Achtung: Noch keine Daten eingepflegt, da keine vorhanden. Testweise DummyText verwendet. 
+
+##### 3.10	Component AudioPlayer
+Der AudioPlayer unterscheidet besitzt 2 wichtige Parameter.
+aId Soll die CurrentTourStopId, also Index der aufrufenden Seite sein.
+audioType unterscheidet zwischen Audio von pictureArticle(picture) und screenkeyTourVIsual (start) Eins von beiden muss verwendet werden, könnte noch weiter ergänzt werden beispielsweise für das Textaccordion.
+Die Sound Files sind benanntnach ts<tourStopId> also beim ersten Bild ts0.
+Der Audioplayer kombiniert also die strings ts + aId um die Soundfile abzuspielen, wenn sie von pictureArticle kommen
+Der Rest des Components ist der Dokumentation des Audioplayers zu entnehmen.
+
+##### 3.11	Component imageGallery
+Derzeit einfache Auflistung von vordefinierten Bildern, die größer werden (aber noch verbuggt) wenn man sie anklickt, ohne Verlinkung auf Stelle in Tour 
+Wird noch bearbeitet bis Semesterstart in: 
+Alle Bilder des Bilderordners werden angezeigt und verlinken auf die Stelle in der Tour, zu der sie gehören. 
+
+##### 3.12	Component imageElement
+Returned Bild aus this.props.imgsource? 
+Konnte keine Verwendung finden, evtl veraltet 
+PRÜFEN
+
+##### 3.13	Component drawer
+???????
+
+#####  3.14	Component activityLoader
+Veraltet?
+
 
