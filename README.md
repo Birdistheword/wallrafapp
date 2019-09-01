@@ -182,7 +182,7 @@ Willkommen Seite mit Bild & Logos als Hintergrund.
 > Willkommen -> screenDecision
 
 ##### <a name="decision"></a>3.2	screenDecision
-AUswahl zwischen Tourenübersicht und Qr Code Scanner.
+Auswahl zwischen Tourenübersicht und Qr Code Scanner.
 
 > Wähle eine Tour aus -> screenHome
 > Qr Code Scanner -> qrScan
