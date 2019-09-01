@@ -205,7 +205,7 @@ Im developer Branch sind momentan nur 2 Touren eingetragen, da diese vollständi
 
 ##### <a name="tourpicture"></a>3.6	screenTourPicture
 
-![Karte](/img/map)
+![Karte](/img/map.jpg)
 
 `src -> assets -> img -> maps`
 
