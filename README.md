@@ -1,14 +1,17 @@
 # wallrafapp
 ## Die Dokumentation der WallrafApp
 
-<ol>Inhalt
-  <li>Aufsetzen der Umgebung</li>
-  <li>Aufsetzen der App</li>
-  <li>Screens und Components</li>
-  <li>Datenbank</li>
-</ol>
+### Inhalt
+1. [Aufsetzen der Umgebung](1)
+2. [Aufsetzen der App]
+  2.1 [Aufsetzen des Android Devices]
+    a) [Physisches Device]
+    b) [Virtuelles Device]
+3. [Screens und Components]
+4. [Datenbank]
 
-##### Aufsetzen der Entwicklungsumgebung
+
+##### Aufsetzen der Entwicklungsumgebung <a id="1"></a>
 Die App wurde in react-native geschrieben. 
 Installiere  [Node.JS (V. 8+)](https://nodejs.org/en/), [Python 2](https://www.python.org/downloads/)  und das  [Java SE Development Kit.](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  
 Am bequemsten geht das mit Chocolatey, einem package manager für Windows. 
@@ -53,7 +56,7 @@ Suche die Variable Path, klick auf Bearbeiten und dann auf Neu und füge ein
 
 ##### Deine Entwicklungsumgebung ist eingerichtet!
 
-### 2.0 Aufsetzen der App
+### <a id="2"></a>2.0 Aufsetzen der App
 Lasse dich von deiner Projektleitung zum [Gitlab Projekt](https://gitlab.cceh.uni-koeln.de/jschmi42/wallrafapp) hinzufügen und downloade es anschließend. Am besten geht das mit [Github Desktop](https://desktop.github.com/).
 *Stand 20.08.2019 wird die developer Branch verwendet
 Über ein Merging mit der Hauptbranch wäre nachzudenken.*
@@ -251,6 +254,9 @@ PRÜFEN
 #####  3.14	Component activityLoader
 Veraltet?
 
+
+
+
 ### 4. Datenbank
 
 Die Datenbank ist aufgeteilt in drei json Dateien. 
@@ -259,6 +265,8 @@ Die Datenbank ist aufgeteilt in drei json Dateien.
 - picture.json enthält Informationen zu den Bildern
 
 #### 4.1 touren.json
+![touren.json](/img/TourenStruktur.png)
+
 
 Einträge zu Touren bestehen aus 7 Elementen
 1. Tour Id
