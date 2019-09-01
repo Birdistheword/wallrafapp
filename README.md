@@ -29,6 +29,7 @@
 5.1 [touren.json](#touren)  
 5.2 [tourenStops.json](#tourenStops)  
 5.3 [picture.json](#picture)  
+6. [To Dos](#todos)
 
 
 ##### Aufsetzen der Entwicklungsumgebung <a name="umgebung"></a>
@@ -258,16 +259,23 @@ Return liefert dann erst das Data Array und danach die Pfeile zum vor und zurüc
 
 
 ##### <a name="textaccordion"></a>4.2	Component textAccordion
-Selbst geschriebenes Component
-Component toggled zwischen zwei states, bei Click auf Aufklapp Button.
-Enthält Text, der aus tourenStops.json AccordionText[i] übergeben wird aus pictureArticle. 
-Enthält Audioplayer, Achtung: Noch keine Daten eingepflegt, da keine vorhanden. Testweise DummyText verwendet. 
+das textAccordion ist ein selbstgeschriebenes Component.  
+Es toggled zwischen zwei states, bei Click auf Aufklapp Button.
+- Höhe des Textes 0
+- Höhe des Textes normal
+
+Enthält Text, der aus tourenStops.json AccordionText übergeben wird aus pictureArticle.  
+Enthält Audioplayer,  
+**Achtung: Noch keine Daten eingepflegt, da keine vorhanden. Testweise DummyText verwendet. **
 
 ##### <a name="audioplayer"></a>4.3	Component AudioPlayer
-Der AudioPlayer unterscheidet besitzt 2 wichtige Parameter.
-aId Soll die CurrentTourStopId, also Index der aufrufenden Seite sein.
-audioType unterscheidet zwischen Audio von pictureArticle(picture) und screenkeyTourVIsual (start) Eins von beiden muss verwendet werden, könnte noch weiter ergänzt werden beispielsweise für das Textaccordion.
-Die Sound Files sind benanntnach ts<tourStopId> also beim ersten Bild ts0.
+Der AudioPlayer besitzt 2 wichtige Parameter:
+
+**aId Soll die CurrentTourStopId, also Index der aufrufenden Seite sein.
+audioType unterscheidet zwischen Audio von pictureArticle(picture) und screenkeyTourVIsual (start) Eins von beiden muss verwendet werden, könnte noch weiter ergänzt werden beispielsweise für das Textaccordion.**
+
+Die Sound Files sind benanntnach ts<tourStopId> also beim ersten Bild ts0.  
+  
 Der Audioplayer kombiniert also die strings ts + aId um die Soundfile abzuspielen, wenn sie von pictureArticle kommen
 Der Rest des Components ist der Dokumentation des Audioplayers zu entnehmen.
 
@@ -335,4 +343,12 @@ Einträge zu Bildern bestehen aus 7 Einträgen
 6. zugehörige TourId
 7. zugehörige TourStopId
 
+#### <a name="todos"></a>6. To Dos
 
+1. Daten für das textAccordion mit Absprache zum Inhaltsteam einpflegen  
+2. Besprechen, ob es sich lohnt den Audioplayer zu überarbeiten um einen besseren einzuabauen, der über eine Zeitleiste und Lautstärkeoptionen verfügt  
+3. Bildergallerie überarbeiten, da diese momentan keinen Mehrwert bringt. Links zu den Bildenr wären denkbar  
+4. Das Icon sieht nicht auf jedem Smartphone gleich aus  
+5. Quellenangaben müssen eingefügt werden.  
+6. Wo sollen Zusatzinfos eingefügt werden sollen? Was, wenn diese ebenfalls über eine Tonspur verfügen?  
+7. Bildcredits sind noch nicht vollständig in der App.  
