@@ -3,14 +3,32 @@
 
 ### Inhalt
 1. [Aufsetzen der Umgebung](#umgebung)
-2. [Aufsetzen der App](#app)
-2.1 [Aufsetzen des Android Devices](#android)
-a) [Physisches Device](#physisch)
-b) [Virtuelles Device](#virtuell)
-2.2 [Starten der App](#starten)
-2.3 [Gängige Fehler und mögliche Lösungen](#fehler)
-3. [Screens und Components](#screens)
-4. [Datenbank](#datenbank)
+2. [Aufsetzen der App](#app)  
+2.1 [Aufsetzen des Android Devices](#android)  
+&nbsp;&nbsp;&nbsp;&nbsp;a) [Physisches Device](#physisch)  
+&nbsp;&nbsp;&nbsp;&nbsp;b) [Virtuelles Device](#virtuell)  
+2.2 [Starten der App](#starten)  
+2.3 [Gängige Fehler und mögliche Lösungen](#fehler)  
+3. [Screens](#screens)  
+3.1 [screenStart](#start)  
+3.2 [screenDecision](#decision)  
+3.3 [Screen qrScan](#qrscan)  
+3.4 [screenHome](#home)  
+3.5 [screenTourKeyVisual](#tourvisual)  
+3.6 [screenTourPicture](#tourpicture)  
+3.7 [screenEnd](#end)  
+4. [Components](#components)  
+4.1 [Component pictureArticle](#picturearticle)  
+4.2 [Component textAccordion](#textaccordion)  
+4.3 [Component AudioPlayer](#audioplayer)  
+4.4 [Component imageGallery](#imagegallery)  
+4.5 [Component imageElement](#imageelement)  
+4.6 [Component drawer](#drawer)  
+4.7 [Component activityLoader](#activityloaders)  
+5. [Datenbank](#datenbank)    
+5.1 [touren.json](#touren)  
+5.2 [tourenStops.json](#tourenStops)  
+5.3 [picture.json](#picture)  
 
 
 ##### Aufsetzen der Entwicklungsumgebung <a name="umgebung"></a>
@@ -59,18 +77,23 @@ Suche die Variable Path, klick auf Bearbeiten und dann auf Neu und füge ein
 ##### Deine Entwicklungsumgebung ist eingerichtet!
 
 ### <a name="app"></a>2.0 Aufsetzen der App
-Lasse dich von deiner Projektleitung zum [Gitlab Projekt](https://gitlab.cceh.uni-koeln.de/jschmi42/wallrafapp) hinzufügen und downloade es anschließend. Am besten geht das mit [Github Desktop](https://desktop.github.com/).
+Lasse dich von deiner Projektleitung zum [Gitlab Projekt](https://gitlab.cceh.uni-koeln.de/jschmi42/wallrafapp) hinzufügen und downloade es anschließend. Am besten geht das mit [Github Desktop](https://desktop.github.com/).  
+
 *Stand 20.08.2019 wird die developer Branch verwendet
 Über ein Merging mit der Hauptbranch wäre nachzudenken.*
-Öffne das Projekt mit einem Editor deiner Wahl. Er sollte aber über ein Terminal verfügen. Gerne verwendet wurde daür [Jetbrains WebStorm](https://www.jetbrains.com/webstorm/), da man es über die Universität umsonst nutzen darf. Ein Account muss hierfür eingerichtet werden.
+
+Öffne das Projekt mit einem Editor deiner Wahl. Er sollte aber über ein Terminal verfügen. Gerne verwendet wurde daür [Jetbrains WebStorm](https://www.jetbrains.com/webstorm/), da man es über die Universität umsonst nutzen darf. Ein Account muss hierfür eingerichtet werden.  
 Öffne das Projekt. 
 Im Terminal installierst du die npm Packages mit
+
 `npm install`
+
 Öffne parallel Android Studio und Öffne den Android Ordner des Projekts (NICHT das Projekt selber, sondern den Ordner im Projekt, das ist wichtig!)
+
 ##### <a name="android"></a>2.1	Aufsetzen des Android Devices
 ###### <a name="physisch"></a>a)	Physisches Device
 
-- [ ] Bild noch einfügen
+![buildNumbers](/img/buildNumbers.jpg)
 
 
 Je nachdem welches Handy du besitzt findest du deine Build Number auf verschiedenen Pfaden
@@ -103,9 +126,10 @@ In Android Studio, öffne den AVD Manager und erstelle ein Neues Gerät unter
 
 `Tools -> AVD Manager -> Create new Virtual Device`
 
-Wähle ein Handy aus. Je Neues das Handy und je besser die Auflösung, desto mehr Rechenleistung wird benötigt, um das Handy zu simulieren. 
+Wähle ein Handy aus. Je Neues das Handy und je besser die Auflösung, desto mehr Rechenleistung wird benötigt, um das Handy zu simulieren.   
 Empfehlung: Nexus 5 bei Laptop, Pixel 2 bei neuerem Stand Computer 
-Klick auf Next, dann neben Pie auf Download, um die richtige Android Version herunterzuladen und anschließend wieder auf Next und dann auf Finish.
+Klick auf Next, dann neben Pie auf Download, um die richtige Android Version herunterzuladen und anschließend wieder auf Next und dann auf Finish.  
+
 Starte anschließend das Handy mittels des grünen Pfeils im AVD Manager.
 **Hinweis: Beim ersten Starten kann das schon was dauern**
 
@@ -151,26 +175,26 @@ Ein anderes, schwacheres Handy mit kleinerer Auflösung wählen.
 
 
 
-### <a name="screens"></a>3.	Screens & Components
-##### 3.1	screenStart
+### <a name="screens"></a>3.	Screens
+##### <a name="start"></a>3.1	screenStart
 Willkommen Seite mit Bild & Logos als Hintergrund. 
 > Willkommen -> screenDecision
 
-##### 3.2	screenDecision
-Man kann auswählen, ob man auf die Tourenübersicht gelangen will oder ob man per QR Code Scanner direkt zu einem Bild springt. 
+##### <a name="decision"></a>3.2	screenDecision
+AUswahl zwischen Tourenübersicht und Qr Code Scanner.
 
 > Wähle eine Tour aus -> screenHome
 > Qr Code Scanner -> qrScan
 
-##### 3.3	Screen qrScan
+##### <a name="qrscan"></a>3.3	Screen qrScan
 Der QR Code Scanner liest TourId und TourIndex aus (In welchem Format genau, also ob 01, 0-1 oder 0_1, oder noch was anderes, ist leider gerade unbekannt) 
 > Scannen eines QR Codes -> pictureArticle[TourId, TourIndex]
 
-##### 3.4	screenHome
+##### <a name="home"></a>3.4	screenHome
 Rendert alle Elemente des Components HomeArticles.
 > Klick auf ein Element von HomeArticles -> screenTourKeyVisual[TourId]
 
-##### 3.5	screenTourKeyVisual
+##### <a name="tourvisual"></a>3.5	screenTourKeyVisual
 Rendert die Informationen zur aktuellen Tour mit Namen, Text (auch in Audioform)
 Informationen kommen aus DatenbankREFERENZ
 
@@ -179,40 +203,49 @@ Informationen kommen aus DatenbankREFERENZ
 Im developer Branch sind momentan nur 2 Touren eingetragen, da diese vollständig sind und über Audiospuren verfügen. Es stehen weit mehr Touren zur Verfügung. (Aktueller Stand: ??)
 > Tour Starten -> screenTourPicture[TourId]
 
-##### 3.6	screenTourPicture
-Blendet Karte zum Bild ein (Stockwerkabbildung REFERENZ)
+##### <a name="tourpicture"></a>3.6	screenTourPicture
+
+![Karte](/img/map)
 
 `src -> assets -> img -> maps`
 
-Maps sind beschriftet nach dem Muster STOCKWERK_RAUM (mit unseren Variablen würde das dann buildingLevel_roomNumber heißen)
-Die Values hierfür sind eingetragen in REFERENZ
+Maps sind beschriftet nach dem Muster STOCKWERK_RAUM (mit unseren Variablen heißt das dann buildingLevel_roomNumber)  
+Die Values hierfür sind eingetragen in [picture.json)(#picture)
 
-`src -> assets -> data -> buildingLevel`
-`src -> assets -> data -> roomNumber`
-Auf den Karten ist der richtige Raum dann im museumsrot markiert. Wird ein Bild umgehängt, müssen nur die beiden jeweiligen Variablen geändert werden.
+
+Auf den Karten ist der richtige Raum dann im museumsrot markiert.   
+Wird ein Bild umgehängt, müssen nur die beiden jeweiligen Variablen geändert werden.  
 Die Karte kann rechts oben mit dem MapIcon wieder aufgerufen werden.
 
 Die Daten zur aktuellen Tour werden deklariert. Vor allem wichtig: 
-> currentTourId, currentTourIndex, currentTourStopId(?) und currentMainPictureId
-mit Hilfe der aktuellen TourId und TourIndex werden dann jeweils die nächsten Screens aufgerufen.
-screenTourPicture enthält pictureArticle
 
-##### 3.7	Component pictureArticle
+> currentTourId, currentTourIndex, currentTourStopId(?) und currentMainPictureId
+
+mit Hilfe der aktuellen TourId und TourIndex werden dann jeweils die nächsten Screens aufgerufen.  
+screenTourPicture enthält das component pictureArticle
+
+##### <a name="end"></a>3.7	screenEnd
+Der End Screen, der nach dem letzten Bild einer Tour angezeigt wird. Von hier aus kann man zurück zur Startseite oder zurück zur Touren Auswahl
+> ToDo: überlegen, ob genau diese 2 Buttons sinnvoll sind, oder man etwa Startseite durch QR Scanner Link ersetzt. (User will wohl      > entweder eine neue Tour starten oder etwas Scannen, da ist durch Startseite ein Klick dazwischen)
+
+### <a name="components"></a>4. Components
+
+##### <a name="pictureArticle"></a>4.1	Component pictureArticle
 Das Herzstück der App. Hier handelt es sich um das Component, das dynamisch je nach TourId und TourIndex aufgebaut wird mit zugehörigem Bild, Text, Audiospur und evtl Zusatzbild und oder AccordionText
 
 State prüft, ob wir beim letzten Bild angekommen sind:
-lastTourStopId = Länge der Tour – 1
+lastTourStopId = Länge der Tour – 1  
 - Falls true -> Nächstes Bild ist TourEnde (bringMeToTheEnd())
 - Falls false -> Nächstes Bild ist regulär (bringMeToTheNextPicture())
 
 Wie schon in screenTourPicture werden wichtige Variablen zu currentTourId etc. deklariert. 
-dataArray wird erstellt und in dieses wird der Inhalt gepusht.
-Mittels des react-native Components Image-Zoom wird das passende Bild per pictureID von der currentTour angezeigt. 
+Ein dataArray wird erstellt und in dieses wird der Inhalt gepusht.  
+Mittels des react-native Components Image-Zoom wird das passende Bild per pictureID von der currentTour angezeigt.  
 AudioPlayer wird aufgerufen mit 3 Parametern: 
 -	AudioId = CurrentTourStopId
 -	Navigation = navigation (?)
 -	audioSource = picture 
-Diese werden im Component AudiPlayer näher beschrieben.
+Diese werden im Component AudioPlayer näher beschrieben.
 
 Meta Infos zu Bild werden darunter eingeblendet. 
 Dann folgen Titel und Text
@@ -222,17 +255,15 @@ Return liefert dann erst das Data Array und danach die Pfeile zum vor und zurüc
 
 > Achtung: Gerade sind die Pfeile ebenfalls kopiert, an den Anfang des Arrays, da gewünscht wurde, dies auch ohne Scrollen bewältigen zu > können. Das scheint noch nicht die optimale Lösung zu sein, soll aber erst vom Kurs angeschaut werden, da es eine neue Funktion ist.  > Da nicht sicher ist, wie das ankommt wurde von einer komplexeren / saubereren Lösung abgesehen. 
 
-##### 3.8	screenEnd
-Der End Screen, der nach dem letzten Bild einer Tour angezeigt wird. Von hier aus kann man zurück zur Startseite oder zurück zur Touren Auswahl
-> ToDo: überlegen, ob genau diese 2 Buttons sinnvoll sind, oder man etwa Startseite durch QR Scanner Link ersetzt. (User will wohl      > entweder eine neue Tour starten oder etwas Scannen, da ist durch Startseite ein Klick dazwischen)
 
-##### 3.9	Component textAccordion
+
+##### <a name="textaccordion"></a>4.2	Component textAccordion
 Selbst geschriebenes Component
 Component toggled zwischen zwei states, bei Click auf Aufklapp Button.
 Enthält Text, der aus tourenStops.json AccordionText[i] übergeben wird aus pictureArticle. 
 Enthält Audioplayer, Achtung: Noch keine Daten eingepflegt, da keine vorhanden. Testweise DummyText verwendet. 
 
-##### 3.10	Component AudioPlayer
+##### <a name="audioplayer"></a>4.3	Component AudioPlayer
 Der AudioPlayer unterscheidet besitzt 2 wichtige Parameter.
 aId Soll die CurrentTourStopId, also Index der aufrufenden Seite sein.
 audioType unterscheidet zwischen Audio von pictureArticle(picture) und screenkeyTourVIsual (start) Eins von beiden muss verwendet werden, könnte noch weiter ergänzt werden beispielsweise für das Textaccordion.
@@ -240,33 +271,33 @@ Die Sound Files sind benanntnach ts<tourStopId> also beim ersten Bild ts0.
 Der Audioplayer kombiniert also die strings ts + aId um die Soundfile abzuspielen, wenn sie von pictureArticle kommen
 Der Rest des Components ist der Dokumentation des Audioplayers zu entnehmen.
 
-##### 3.11	Component imageGallery
+##### <a name="imagegallery"></a>4.4	Component imageGallery
 Derzeit einfache Auflistung von vordefinierten Bildern, die größer werden (aber noch verbuggt) wenn man sie anklickt, ohne Verlinkung auf Stelle in Tour 
 Wird noch bearbeitet bis Semesterstart in: 
 Alle Bilder des Bilderordners werden angezeigt und verlinken auf die Stelle in der Tour, zu der sie gehören. 
 
-##### 3.12	Component imageElement
+##### <a name="imageelement"></a>4.5	Component imageElement
 Returned Bild aus this.props.imgsource? 
 Konnte keine Verwendung finden, evtl veraltet 
 PRÜFEN
 
-##### 3.13	Component drawer
+##### <a name="drawer"></a>4.6	Component drawer
 ???????
 
-#####  3.14	Component activityLoader
+#####  <a name="activityloader"></a>4.7	Component activityLoader
 Veraltet?
 
 
 
 
-### <a name="datenbank"></a>4. Datenbank
+### <a name="datenbank"></a>5. Datenbank
 
 Die Datenbank ist aufgeteilt in drei json Dateien. 
 - touren.json enthält Informationen über die Touren an sich
 - tourenStops.json enthält Informationen zu den einzelnen Elementen innerhalb einer Tour
 - picture.json enthält Informationen zu den Bildern
 
-#### 4.1 touren.json
+#### <a name="touren"></a>5.1 touren.json
 ![touren.json](/img/TourenStruktur.png)
 
 
@@ -279,7 +310,7 @@ Einträge zu Touren bestehen aus 7 Elementen
 6. Array von BilderIds, die in der Tour vorkommen
 7. Array von TextIds, die in der Tour vorkommen
 
-#### 4.2 tourenStops.json
+#### 5.2 <a name="tourenStops"></a>tourenStops.json
 
 Einträge innerhalb der Touren bestehen aus 10 Elementen
 1. Text Id
@@ -293,7 +324,7 @@ Einträge innerhalb der Touren bestehen aus 10 Elementen
 9. Audioquelle
 10. Kommentar
 
-#### 4.3 picture.json
+#### 5.3 <a name="picture"></a>picture.json
 
 Einträge zu Bildern bestehen aus 7 Einträgen
 1. Bild Id 
