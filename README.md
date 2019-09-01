@@ -2,16 +2,18 @@
 ## Die Dokumentation der WallrafApp
 
 ### Inhalt
-1. [Aufsetzen der Umgebung](1)
-2. [Aufsetzen der App]
-  2.1 [Aufsetzen des Android Devices]
-    a) [Physisches Device]
-    b) [Virtuelles Device]
-3. [Screens und Components]
-4. [Datenbank]
+1. [Aufsetzen der Umgebung](#umgebung)
+2. [Aufsetzen der App](#app)
+2.1 [Aufsetzen des Android Devices](#android)
+a) [Physisches Device](#physisch)
+b) [Virtuelles Device](#virtuell)
+2.2 [Starten der App](#starten)
+2.3 [Gängige Fehler und mögliche Lösungen](#fehler)
+3. [Screens und Components](#screens)
+4. [Datenbank](#datenbank)
 
 
-##### Aufsetzen der Entwicklungsumgebung <a id="1"></a>
+##### Aufsetzen der Entwicklungsumgebung <a name="umgebung"></a>
 Die App wurde in react-native geschrieben. 
 Installiere  [Node.JS (V. 8+)](https://nodejs.org/en/), [Python 2](https://www.python.org/downloads/)  und das  [Java SE Development Kit.](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  
 Am bequemsten geht das mit Chocolatey, einem package manager für Windows. 
@@ -56,7 +58,7 @@ Suche die Variable Path, klick auf Bearbeiten und dann auf Neu und füge ein
 
 ##### Deine Entwicklungsumgebung ist eingerichtet!
 
-### <a id="2"></a>2.0 Aufsetzen der App
+### <a name="app"></a>2.0 Aufsetzen der App
 Lasse dich von deiner Projektleitung zum [Gitlab Projekt](https://gitlab.cceh.uni-koeln.de/jschmi42/wallrafapp) hinzufügen und downloade es anschließend. Am besten geht das mit [Github Desktop](https://desktop.github.com/).
 *Stand 20.08.2019 wird die developer Branch verwendet
 Über ein Merging mit der Hauptbranch wäre nachzudenken.*
@@ -65,8 +67,8 @@ Lasse dich von deiner Projektleitung zum [Gitlab Projekt](https://gitlab.cceh.un
 Im Terminal installierst du die npm Packages mit
 `npm install`
 Öffne parallel Android Studio und Öffne den Android Ordner des Projekts (NICHT das Projekt selber, sondern den Ordner im Projekt, das ist wichtig!)
-##### 2.1	Aufsetzen des Android Devices
-###### a)	Physisches Device
+##### <a name="android"></a>2.1	Aufsetzen des Android Devices
+###### <a name="physisch"></a>a)	Physisches Device
 
 - [ ] Bild noch einfügen
 
@@ -95,7 +97,7 @@ Schreib dann
 
 wobei <device name> für den Namen deines Handies steht.
 
-###### b)	Virtuelles Device
+###### <a name="virtuell"></a>b)	Virtuelles Device
 
 In Android Studio, öffne den AVD Manager und erstelle ein Neues Gerät unter
 
@@ -107,7 +109,7 @@ Klick auf Next, dann neben Pie auf Download, um die richtige Android Version her
 Starte anschließend das Handy mittels des grünen Pfeils im AVD Manager.
 **Hinweis: Beim ersten Starten kann das schon was dauern**
 
-##### 2.2	Starten der App
+##### <a name="starten"></a>2.2	Starten der App
 
 In Android Studio geh auf 
 
@@ -127,7 +129,7 @@ Schüttle dein physisches Device oder drücke STRG + M beim virtuellen, um weite
 Das Setup ist beendet!
 Falls etwas noch nicht klappt, nicht verzagen! Bei den meisten von uns gab es erstmal Startschwierigkeiten. Im Folgenden liste ich die häufigsten Fehler auf.
 
-#### 2.3	Gängige Fehler und ihre möglichen Lösungen 
+#### <a name="fehler"></a>2.3	Gängige Fehler und ihre möglichen Lösungen 
 
 ###### Fehler
 
@@ -149,7 +151,7 @@ Ein anderes, schwacheres Handy mit kleinerer Auflösung wählen.
 
 
 
-### 3.	Screens & Components
+### <a name="screens"></a>3.	Screens & Components
 ##### 3.1	screenStart
 Willkommen Seite mit Bild & Logos als Hintergrund. 
 > Willkommen -> screenDecision
@@ -257,7 +259,7 @@ Veraltet?
 
 
 
-### 4. Datenbank
+### <a name="datenbank"></a>4. Datenbank
 
 Die Datenbank ist aufgeteilt in drei json Dateien. 
 - touren.json enthält Informationen über die Touren an sich
