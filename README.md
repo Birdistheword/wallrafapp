@@ -321,6 +321,18 @@ Die Datenbank ist aufgeteilt in drei json Dateien.
 ![touren.json](/img/TourenStruktur.png)
 
 
+###### Codesnippet:
+
+`{
+   "tourId": 0,
+   "tourName": "#-Tour",
+   "numberOfPictures": 8,
+   "tourDuration": 20,
+   "tourTeaser": "Hey, willkommen im Wallraf! Wenn du Lust hast, Gemälde mal aus einem ganz anderen Blickwinkel zu sehen, hast du dich für genau die richtige Tour entschieden. \nTravelblogging, Selfies oder Foodporns gibt es erst seit Social Media-Ära? Wir überzeugen dich vom Gegenteil. In der nächsten halben Stunde flanieren wir mit dir durch die zweite und dritte Etage des Museums und verraten dir das ein oder andere Geheimnis der Kunstgeschichte. Dabei wirst du merken: Alt und neu sind sich ähnlicher, als man im ersten Moment denken könnte. Viel Spaß bei der #tour!",
+   "pictureIds": [1,5,6,8,44,45,47,48],
+   "textIds": [1,5,6,7,8]
+ },`
+
 Einträge zu Touren bestehen aus 7 Elementen
 1. Tour Id
 2. Tour Name
@@ -331,6 +343,21 @@ Einträge zu Touren bestehen aus 7 Elementen
 7. Array von TextIds, die in der Tour vorkommen
 
 #### 5.2 <a name="tourenStops"></a>tourenStops.json
+
+##### Codesnippet
+
+` {
+   "textId": 0,
+   "tourId": 0,
+   "tourStop": 0,
+   "pictureIds": [0],
+   "headline": "#foodie",
+   "textArray": ["Stillleben sind Schnee von gestern? [.............][10]"],
+   "accordionText": [],
+   "source": ["[5]Aktuell 96 Mio. öffentliche Beiträge (29.07.2018)","[6]Vgl. https://www.lwl.org/landesmuseum-download/Kunstwerke%20des%20Monats%20Sammlung%20Online/kdm_03_2010_Snyders.pdf","[7] Vgl. Ebd.","[8] Vgl. https://www.museenkoeln.de/portal/bild-der-woche.aspx?bdw=2007_12","[9] Vgl. http://www.lwl.org/landesmuseum-download/Kunstwerke%20des%20Monats%20Sammlung%20Online/kdm_03_2010_Snyders.pdf","[10] Vgl. https://www.museenkoeln.de/portal/bild-der-woche.aspx?bdw=2007_12"],
+   "audios": "ts0_0",
+   "comment": "aktuell nicht in der Tour"
+ },`
 
 Einträge innerhalb der Touren bestehen aus 10 Elementen
 1. Text Id
@@ -345,6 +372,20 @@ Einträge innerhalb der Touren bestehen aus 10 Elementen
 10. Kommentar
 
 #### 5.3 <a name="picture"></a>picture.json
+
+##### Codesnippet
+
+` {
+   "pictureId": 0,
+   "title": "Spargelbündel",
+   "artist": "Edouard Manet",
+   "year": "1880",
+   "buildingLevel": null,
+   "roomNumber": null,
+   "tourId": 0,
+   "tourStop": 0
+ },
+`
 
 Einträge zu Bildern bestehen aus 7 Einträgen
 1. Bild Id 
