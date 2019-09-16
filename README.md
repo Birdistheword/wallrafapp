@@ -179,16 +179,19 @@ Ein anderes, schwacheres Handy mit kleinerer Auflösung wählen.
 
 ### <a name="screens"></a>3.	Screens
 ##### <a name="start"></a>3.1	screenStart
+<img src="/img/Screenshot_Start.png" alt="Start" width="200"/>
 Willkommen Seite mit Bild & Logos als Hintergrund. 
 > Willkommen -> screenDecision
 
 ##### <a name="decision"></a>3.2	screenDecision
+<img src="/img/Screenshot_Decision.png" alt="Decision" width="200"/>
 Auswahl zwischen Tourenübersicht und Qr Code Scanner.
 
 > Wähle eine Tour aus -> screenHome
 > Qr Code Scanner -> qrScan
 
 ##### <a name="qrscan"></a>3.3	Screen qrScan
+<img src="/img/Screenshot_QR.png" alt="QR" width="200"/>
 Der QR Code Scanner liest TourId und TourIndex aus.
 Momentan ist nicht klar, ob das Museum bereit ist QR Codes aufzuhängen, das war noch im Gespräch.
 Die Codes, die der Scanner lesen soll, beinhalten eine Nummer für die Tour ID und eine Nummer für den Tour Index. Momentan ist leider nicht bekannt, in welchem Format diese gelesen werden (bsp: 01, 0-1, 0_1, etc.)
@@ -196,10 +199,12 @@ Idealerweise soll das scannen eines QR Codes den User dann auf die PictureArticl
 > Scannen eines QR Codes -> pictureArticle[TourId, TourIndex]
 
 ##### <a name="home"></a>3.4	screenHome
+<img src="/img/Screenshot_Homearticles.png" alt="Homearticles" width="200"/>
 Rendert alle Elemente des Components HomeArticles.
 > Klick auf ein Element von HomeArticles -> screenTourKeyVisual[TourId]
 
 ##### <a name="tourvisual"></a>3.5	screenTourKeyVisual
+<img src="/img/Screenshot_Screentour.png" alt="screentour" width="200"/>
 Rendert die Informationen zur aktuellen Tour mit Namen, Text (auch in Audioform)
 Informationen kommen aus DatenbankREFERENZ
 
@@ -209,8 +214,7 @@ Im developer Branch sind momentan nur 2 Touren eingetragen, da diese vollständi
 > Tour Starten -> screenTourPicture[TourId]
 
 ##### <a name="tourpicture"></a>3.6	screenTourPicture
-
-![Karte](/img/map.jpg)
+<img src="/img/Screenshot_Picturemap.png" alt="map" width="200"/>
 
 `src -> assets -> img -> maps`
 
@@ -222,6 +226,9 @@ Auf den Karten ist der richtige Raum dann im museumsrot markiert.
 Wird ein Bild umgehängt, müssen nur die beiden jeweiligen Variablen geändert werden.  
 Die Karte kann rechts oben mit dem MapIcon wieder aufgerufen werden.
 
+
+<img src="/img/Screenshot_Picturearticle.png" alt="article" width="200"/>
+
 Die Daten zur aktuellen Tour werden deklariert. Vor allem wichtig: 
 
 > currentTourId, currentTourIndex, currentTourStopId(?) und currentMainPictureId
@@ -230,6 +237,7 @@ mit Hilfe der aktuellen TourId und TourIndex werden dann jeweils die nächsten S
 screenTourPicture enthält das component pictureArticle
 
 ##### <a name="end"></a>3.7	screenEnd
+<img src="/img/Screenshot_End.png" alt="End" width="200"/>
 Der End Screen, der nach dem letzten Bild einer Tour angezeigt wird. Von hier aus kann man zurück zur Startseite oder zurück zur Touren Auswahl
 > ToDo: überlegen, ob genau diese 2 Buttons sinnvoll sind, oder man etwa Startseite durch QR Scanner Link ersetzt. (User will wohl      > entweder eine neue Tour starten oder etwas Scannen, da ist durch Startseite ein Klick dazwischen)
 
