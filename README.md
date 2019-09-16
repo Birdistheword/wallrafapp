@@ -165,12 +165,13 @@ Falls etwas noch nicht klappt, nicht verzagen! Bei den meisten von uns gab es er
 Im Terminal
 
 `cd android && gradlew clean
+
 cd ../`
 
 ###### Fehler
 Handy bleibt im Start Screen (Bei Google Logo oder Android Schriftzug) stecken
 ###### Lösung
-Länger warten (dauert tatsächlich bis zu 15 Minuten bei manchen) 
+Länger warten. Das Simulieren eines virtuellen Handys kann für manche Laptops eine Herausforderung sein. Da kann es vorkommen, dass es beim ERSTEN Mal starten bis zu 15 Min braucht, um das Handy zu laden.
 Oder
 Ein anderes, schwacheres Handy mit kleinerer Auflösung wählen.
 
@@ -188,7 +189,10 @@ Auswahl zwischen Tourenübersicht und Qr Code Scanner.
 > Qr Code Scanner -> qrScan
 
 ##### <a name="qrscan"></a>3.3	Screen qrScan
-Der QR Code Scanner liest TourId und TourIndex aus (In welchem Format genau, also ob 01, 0-1 oder 0_1, oder noch was anderes, ist leider gerade unbekannt) 
+Der QR Code Scanner liest TourId und TourIndex aus.
+Momentan ist nicht klar, ob das Museum bereit ist QR Codes aufzuhängen, das war noch im Gespräch.
+Die Codes, die der Scanner lesen soll, beinhalten eine Nummer für die Tour ID und eine Nummer für den Tour Index. Momentan ist leider nicht bekannt, in welchem Format diese gelesen werden (bsp: 01, 0-1, 0_1, etc.)
+Idealerweise soll das scannen eines QR Codes den User dann auf die PictureArticle Seite des gescannten Bildes bringen.
 > Scannen eines QR Codes -> pictureArticle[TourId, TourIndex]
 
 ##### <a name="home"></a>3.4	screenHome
@@ -349,6 +353,6 @@ Einträge zu Bildern bestehen aus 7 Einträgen
 2. Besprechen, ob es sich lohnt den Audioplayer zu überarbeiten um einen besseren einzuabauen, der über eine Zeitleiste und Lautstärkeoptionen verfügt  
 3. Bildergallerie überarbeiten, da diese momentan keinen Mehrwert bringt. Links zu den Bildenr wären denkbar  
 4. Das Icon sieht nicht auf jedem Smartphone gleich aus  
-5. Quellenangaben müssen eingefügt werden.  
-6. Wo sollen Zusatzinfos eingefügt werden sollen? Was, wenn diese ebenfalls über eine Tonspur verfügen?  
+5. Quellenangaben müssen eingefügt werden.   
 7. Bildcredits sind noch nicht vollständig in der App.  
+8. Für jede Tour sollte eine eigene JSON Datei erstellt werden. BSP: TourID_Tourenstops.json.
