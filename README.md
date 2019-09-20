@@ -29,7 +29,8 @@
 5.1 [touren.json](#touren)  
 5.2 [tourenStops.json](#tourenStops)  
 5.3 [picture.json](#picture)  
-6. [To Dos](#todos)
+6. [Build Prozess Android](#buildandroid)
+7. [To Dos](#todos)
 
 
 ##### Aufsetzen der Entwicklungsumgebung <a name="umgebung"></a>
@@ -410,7 +411,14 @@ Einträge zu Bildern bestehen aus 7 Einträgen
 6. zugehörige TourId
 7. zugehörige TourStopId
 
-#### <a name="todos"></a>6. To Dos
+#### <a name="buildandroid"></a>6. Build Prozess Android
+
+Bisher haben wir uns genau an dieses Turorial gehalten  
+https://facebook.github.io/react-native/docs/signed-apk-android  
+Den Schlüssel, der benötigt wird um die App zu signieren - also um zu beweisen, dass es sich um ein und dieselbe App handelt, liegt momentan lokal beim Kommilitonen Jürgen gespeichert und könnte bei Bedarf von ihm erhalten werden und an einer globaleren Stelle gespeichert werden.
+
+
+#### <a name="todos"></a>7. To Dos
 
 1. Daten für das textAccordion mit Absprache zum Inhaltsteam einpflegen  
 2. Besprechen, ob es sich lohnt den Audioplayer zu überarbeiten um einen besseren einzuabauen, der über eine Zeitleiste und Lautstärkeoptionen verfügt  
