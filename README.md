@@ -179,7 +179,7 @@ Ein anderes, schwacheres Handy mit kleinerer Auflösung wählen.
 
 ### <a name="screens"></a>3.	Screens
 ##### <a name="start"></a>3.1	screenStart
-<img src="/img/Screenshot_Start.png" alt="Start" width="200"/>
+<img src="img/Screenshot_Start.png" alt="Start" width="200"/>
 Willkommen Seite mit Bild & Logos als Hintergrund. 
 > Willkommen -> screenDecision
 
