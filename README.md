@@ -414,7 +414,7 @@ Einträge zu Bildern bestehen aus 7 Einträgen
 #### <a name="buildandroid"></a>6. Build Prozess Android
 
 Bisher haben wir uns genau an dieses Turorial gehalten  
-https://facebook.github.io/react-native/docs/signed-apk-android  
+[Signed APK Android Doc](https://facebook.github.io/react-native/docs/signed-apk-android)    
 Den Schlüssel, der benötigt wird um die App zu signieren - also um zu beweisen, dass es sich um ein und dieselbe App handelt, liegt momentan lokal beim Kommilitonen Jürgen gespeichert und könnte bei Bedarf von ihm erhalten werden und an einer globaleren Stelle gespeichert werden.
 
 
